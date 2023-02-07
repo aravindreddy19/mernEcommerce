@@ -6,7 +6,7 @@ import {
   newReview,
 } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 import "./ProductDetails.css";
 import ReviewCard from "./ReviewCard.jsx";
 import Loader from "../layout/Loader/Loader";
@@ -24,6 +24,7 @@ import { NEW_REVIEW_RESET } from "../../constants/productConstant";
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
+  const history = useNavigate();
 
   const { id } = useParams();
   // const { id2 } = useParams();
@@ -72,6 +73,7 @@ const ProductDetails = () => {
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
     alert.success("Items added to Cart");
+    history("./Cart")
   };
 
   const submitReviewToggle = () => {
