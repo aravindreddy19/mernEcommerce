@@ -73,7 +73,7 @@ const ProductDetails = () => {
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
     alert.success("Items added to Cart");
-    history("./Cart")
+    history("/Cart")
   };
 
   const submitReviewToggle = () => {
